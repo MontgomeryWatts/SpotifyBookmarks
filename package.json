@@ -7,8 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
   "lint-staged": {
@@ -23,9 +22,14 @@
     "@nuxt/content": "^1.5.0",
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
-    "nuxt": "^2.14.0"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nuxt": "^2.14.0",
+    "spotify-web-api-node": "https://github.com/MontgomeryWatts/spotify-web-api-node"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

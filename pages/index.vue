@@ -1,32 +1,30 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">spotify-bookmarks</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <b-button :href="authorizeUrl"> Login </b-button>
+    <bookmark />
   </div>
 </template>
 
 <script>
-export default {}
+import Bookmark from '@/components/Bookmark';
+
+export default {
+  components: {
+    Bookmark,
+  },
+  async asyncData({ $axios }) {
+    try {
+      const authorizeUrl = await $axios.$get('/api/authorizeUrl');
+      return {
+        authorizeUrl,
+      };
+    } catch (e) {
+      return {
+        authorizeUrl: '',
+      };
+    }
+  },
+};
 </script>
 
 <style>
