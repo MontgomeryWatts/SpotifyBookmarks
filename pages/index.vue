@@ -1,7 +1,29 @@
 <template>
-  <div class="container">
-    <b-button :href="authorizeUrl"> Login </b-button>
-    <bookmark />
+  <div>
+    <bookmark
+      bookmark-title="Girl never mind.."
+      :position-ms="216000"
+      :track="`spotify:track:7rHIOIfWnCF5MTjcmiArSG`"
+      :album="`spotify:album:3aDF5TzZC6ZhPRJ1ETip4P`"
+    />
+    <bookmark
+      bookmark-title="Ascension"
+      :position-ms="140000"
+      :track="`spotify:track:3NYq7c5AIUiubPz9UZl82h`"
+      :album="`spotify:album:4B2pV5Zds6478QOqA8yqdj`"
+    />
+    <bookmark
+      bookmark-title="Aquí llego tu tiburón"
+      :position-ms="153000"
+      :track="`spotify:track:2DEZmgHKAvm41k4J3R2E9Y`"
+      :album="`spotify:album:5lJqux7orBlA1QzyiBGti1`"
+    />
+    <bookmark
+      bookmark-title="Más lento"
+      :position-ms="175000"
+      :track="`spotify:track:5mj8WVFcKdGA8p9HWGTSLc`"
+      :album="`spotify:album:7CjJb2mikwAWA1V6kewFBF`"
+    />
   </div>
 </template>
 
@@ -12,50 +34,5 @@ export default {
   components: {
     Bookmark,
   },
-  async asyncData({ $axios }) {
-    try {
-      const authorizeUrl = await $axios.$get('/api/authorizeUrl');
-      return {
-        authorizeUrl,
-      };
-    } catch (e) {
-      return {
-        authorizeUrl: '',
-      };
-    }
-  },
 };
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

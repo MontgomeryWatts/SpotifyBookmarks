@@ -44,8 +44,10 @@ app.post('/code', (req, res) => {
 
 app.post('/play', (req, res) => {
   const { album, track, position_ms, accessToken } = req.body;
-  spotifyApi.setAccessToken(accessToken);
-  spotifyApi
+  const userSpotifyApi = new SpotifyWebApi({
+    accessToken,
+  });
+  userSpotifyApi
     .play({
       context_uri: album,
       offset: {
@@ -58,8 +60,15 @@ app.post('/play', (req, res) => {
         res.status(200).send();
       },
       function (err) {
-        console.log(err);
-        res.status(500).send();
+        if (err === 'Not Found') {
+          res.status(404).send({ message: 'No active device.' });
+        } else if (err === 'Unauthorized') {
+          res
+            .status(403)
+            .send({ message: 'Premium account required for this action.' });
+        } else {
+          res.status(400).send({ message: 'Unknown error.' });
+        }
       }
     );
 });
