@@ -5,9 +5,5 @@ jobs:
       - image:  'node:12.13.1'
     steps:
       - checkout
-      - run: 
-        name: Run npm install 
-        command: npm install
-      - run:
-        name: Build the application
-        command: npm run build
+      - run: npm install
+      - run: npm run build
