@@ -11,19 +11,3 @@ jobs:
       - run:
         name: Build the application
         command: npm run build
-  test:
-    docker:
-      - image:  'node:12.13.1'
-    steps:
-      - checkout
-      - run: 
-        name: Run npm install 
-        command: npm install
-      - run:
-        name: Run unit tests
-        command: npm run test
-workflows:
-  build_and_test_parallel:
-    jobs:
-      - build
-      - test
