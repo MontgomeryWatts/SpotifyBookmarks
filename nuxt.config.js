@@ -75,4 +75,7 @@ export default {
    */
   build: {},
   serverMiddleware: ['~/api/index.js'],
+  bootstrapVue: {
+    icons: true,
+  },
 };

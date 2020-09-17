@@ -4,7 +4,7 @@
       <b-navbar-brand to="/"> Home </b-navbar-brand>
     </b-navbar>
     <b-container fluid>
-      <b-row>
+      <b-row no-gutters>
         <b-col cols="2" class="border-right">
           <b-container>
             <b-row>

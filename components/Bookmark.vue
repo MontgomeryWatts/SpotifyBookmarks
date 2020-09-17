@@ -4,11 +4,21 @@
       <b-img
         :src="bookmark.track.imageSrc"
         :alt="`Album art for ${bookmark.track.title}`"
-        width="250"
-        height="250"
+        width="150"
+        height="150"
       />
     </template>
-    <h1>{{ bookmark.title }}</h1>
+    <div class="d-inline-flex">
+      <h2>{{ bookmark.title }}</h2>
+      <b-button
+        size="sm"
+        class="ml-2 h-50 align-middle mt-2"
+        pill
+        @click="playBookmark"
+      >
+        <b-icon-caret-right-fill />
+      </b-button>
+    </div>
     <p>
       on
       <a
@@ -33,7 +43,6 @@
         </a>
       </span>
     </p>
-    <b-button @click="playBookmark">Play</b-button>
   </b-media>
 </template>
 
