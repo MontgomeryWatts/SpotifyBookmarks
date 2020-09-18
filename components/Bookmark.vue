@@ -57,14 +57,19 @@ export default {
   methods: {
     async playBookmark() {
       const accessToken = localStorage.getItem('accessToken');
-      if (accessToken) {
+      const refreshToken = localStorage.getItem('refreshToken');
+      if (accessToken && refreshToken) {
         try {
-          await this.$axios.$post('/api/play', {
+          const response = await this.$axios.post('/api/play', {
             album: `spotify:album:${this.bookmark.track.albumId}`,
             track: `spotify:track:${this.bookmark.track.id}`,
             position_ms: this.bookmark.positionMs,
             accessToken,
+            refreshToken,
           });
+          if (response.data.accessToken) {
+            localStorage.setItem('accessToken', response.data.accessToken);
+          }
         } catch (e) {
           console.log('need to log in brother');
         }
