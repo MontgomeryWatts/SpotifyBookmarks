@@ -58,7 +58,7 @@ export default {
     async playBookmark() {
       const accessToken = localStorage.getItem('accessToken');
       const refreshToken = localStorage.getItem('refreshToken');
-      if (accessToken) {
+      if (accessToken && refreshToken) {
         try {
           const response = await this.$axios.post('/api/play', {
             album: `spotify:album:${this.bookmark.track.albumId}`,
